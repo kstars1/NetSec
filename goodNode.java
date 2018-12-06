@@ -21,11 +21,13 @@ public class goodNode implements Runnable {
 	}
 
     public void run(){
-       while(true)
-       {
+    try{
+        while(true)
+        {
             Thread.sleep(10000)
             server.findfile();
-       }
+        }
+        }
     }
 
     public void requestFile(String filename){
