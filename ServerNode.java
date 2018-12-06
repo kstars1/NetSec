@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class ServerNode extends Node{
     
     private ArrayList<File> fileIndex;
+    private int[] buffer = new int[100];
+    private int buffdex;
 
     public ServerNode(String name) {
         super(name);
@@ -26,8 +28,13 @@ public class ServerNode extends Node{
     public void addIndex(File newFile){
         fileIndex.add(newFile);
     }
-    public String findFile(String filename){
-        if (fileIndex.contains(filename))
+    public String findFile(){
+        //if (fileIndex.contains(filename))
+        buffer[buffdex] = buffdex;
+        buffdex++;
+        //sleeping done here
+        thread.sleep()
+        buffdex--;
     }
    
 }
