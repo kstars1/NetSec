@@ -24,7 +24,7 @@ public class badNode implements Runnable {
     try{
         while(true)
             {
-                server.findfile();
+                server.findfile("bad");
             }
         }
     }

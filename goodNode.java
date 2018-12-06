@@ -25,7 +25,7 @@ public class goodNode implements Runnable {
         while(true)
         {
             Thread.sleep(10000)
-            server.findfile();
+            server.findfile("good");
         }
         }
     }

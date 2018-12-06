@@ -28,12 +28,13 @@ public class ServerNode extends Node{
     public void addIndex(File newFile){
         fileIndex.add(newFile);
     }
-    public String findFile() throws InterruptedException {
+    public String findFile(String requester) throws InterruptedException {
         //if (fileIndex.contains(filename))
         buffer[buffdex] = buffdex;
         buffdex++;
         //sleeping done here
         Thread.sleep(5000)
+        System.out.println(requester);
         buffdex--;
     }
    
