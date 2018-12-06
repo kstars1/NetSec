@@ -21,10 +21,12 @@ public class badNode implements Runnable {
 	}
 
     public void run(){
-       while(true)
-       {
-            server.findfile();
-       }
+    try{
+        while(true)
+            {
+                server.findfile();
+            }
+        }
     }
 
     public void requestFile(String filename){
