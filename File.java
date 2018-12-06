@@ -11,4 +11,17 @@ package p2p;
  */
 public class File {
     
+    private String filename;
+    private Node location;
+    
+    public File(String filename, Node location){
+        this.filename = filename;
+        this.location = location;
+    }
+    public String getFilename(){
+        return filename;
+    }
+    public String getLocation(){
+        return location.name;
+    }
 }

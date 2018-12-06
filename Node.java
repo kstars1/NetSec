@@ -12,19 +12,22 @@ import java.util.ArrayList;
  * @author marks
  */
 public class Node {
-    public ArrayList<Node> neighbors;
-    public ArrayList<String> files;
+    private ArrayList<Node> neighbors;
+    private ArrayList<String> files;
+    public String name;
     
-    public Node(){
+    public Node(String name){
         neighbors = new ArrayList();
         files = new ArrayList();
+        this.name = name;
     }
-    public Node(Node n1, Node n2, Node n3){
+    public Node(String name,Node n1, Node n2, Node n3){
         neighbors = new ArrayList();
         files = new ArrayList();
         neighbors.add(n1);
         neighbors.add(n2);
         neighbors.add(n3);
+        this.name = name;
     }
     
     public ArrayList<Node> getNeighbors(){
