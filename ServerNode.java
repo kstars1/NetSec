@@ -6,6 +6,7 @@
 package p2p;
 
 import java.util.ArrayList;
+import java.Thread;
 
 /**
  *
@@ -33,7 +34,7 @@ public class ServerNode extends Node{
         buffer[buffdex] = buffdex;
         buffdex++;
         //sleeping done here
-        thread.sleep()
+        Thread.sleep();
         buffdex--;
     }
    
