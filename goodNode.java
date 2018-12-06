@@ -5,30 +5,39 @@
 package p2p;
 
 import java.util.ArrayList;
-import ServerNode.java;
+
 
 public class goodNode implements Runnable {
         Thread thread;
+        ServerNode server = new ServerNode("indexer");
         public goodNode(){
            //empty constructor 
 
         }
         
-        public goodNode(String threadName, ServerNode server) {
+        public goodNode(String threadName, ServerNode indexer) {
 		thread = new Thread(this, threadName); // (1) Create a new thread.
-		System.out.println(thread.getName());
+		server = indexer;
+                System.out.println(thread.getName());
 		thread.start(); // (2) Start the thread.
 	}
 
     public void run(){
-    try{
+    
         while(true)
-        {
-            Thread.sleep(10000)
-            server.findfile("good");
-        }
-        }
+            {
+                try{
+                    server.findFile("good");
+                    thread.sleep(10000);
+                }
+                catch(InterruptedException e)
+                {
+                    
+                    System.out.println("something went rong");
+                }
+                }
     }
+    
 
     public void requestFile(String filename){
         //send request to servernode for file

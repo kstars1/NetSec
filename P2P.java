@@ -9,13 +9,14 @@ package p2p;
  *
  * @author marks
  */
-public class P2P {
+public class P2p {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       QueryFlood run = new QueryFlood();
+       run.main();
     }
     
 }

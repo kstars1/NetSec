@@ -6,37 +6,32 @@
 package p2p;
 
 import java.util.ArrayList;
-import java.Thread;
-
-/**
- *
- * @author marks
- */
 public class ServerNode extends Node{
     
-    private ArrayList<File> fileIndex;
+    //private ArrayList<File> fileIndex;
     private int[] buffer = new int[100];
     private int buffdex;
 
     public ServerNode(String name) {
         super(name);
-        fileIndex = new ArrayList<File>();
+        //fileIndex = new ArrayList<File>();
     }
     public ServerNode(String name, Node n1, Node n2, Node n3){
         super(name,n1,n2,n3);
-        fileIndex = new ArrayList<File>();
+        //fileIndex = new ArrayList<File>();
     }
-    public void addIndex(File newFile){
-        fileIndex.add(newFile);
-    }
-    public String findFile(String requester) throws InterruptedException {
+    //public void addIndex(File newFile){
+        //fileIndex.add(newFile);
+    //}
+    public void findFile(String requester) throws InterruptedException {
         //if (fileIndex.contains(filename))
         buffer[buffdex] = buffdex;
         buffdex++;
         //sleeping done here
-        Thread.sleep(5000)
+        Thread.sleep(5000);
         System.out.println(requester);
         buffdex--;
+        return;
     }
    
 }
