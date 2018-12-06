@@ -7,14 +7,14 @@ package p2p;
 import java.util.ArrayList;
 import ServerNode.java;
 
-public class goodNode implements Runnable {
+public class badNode implements Runnable {
         Thread thread;
-        public goodNode(){
+        public badNode(){
            //empty constructor 
 
         }
         
-        public goodNode(String threadName, ServerNode server) {
+        public badNode(String threadName, ServerNode server) {
 		thread = new Thread(this, threadName); // (1) Create a new thread.
 		System.out.println(thread.getName());
 		thread.start(); // (2) Start the thread.
@@ -23,7 +23,6 @@ public class goodNode implements Runnable {
     public void run(){
        while(true)
        {
-            Thread.sleep(10000)
             server.findfile();
        }
     }
