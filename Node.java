@@ -12,41 +12,66 @@ import java.util.ArrayList;
  * @author marks
  */
 public class Node {
-    private ArrayList<Node> neighbors;
-    private ArrayList<String> files;
-    public String name;
+    private String name;    // Node alias
+    private long ip;    // Node IPv4
+    private int port;   // Node port number
+    private Node next;  // Pointer to next adjacent node
+    private Node back;  // Pointer to previous adjacent node
+    private final long min_ip = 0;  // Minimum IP 0.0.0.0
+    private final long max_ip = 4294967295L; // Maximum IP 255.255.255.255
+    private final int min_port = 20;    // Arbitrary minimum port
+    private final int max_port = 1023;  // Arbitrary maximum port
     
-    public Node(String name){
-        neighbors = new ArrayList();
-        files = new ArrayList();
-        this.name = name;
+    // Default Node constructor
+    public Node(){
+        name = "";
+        ip = 0;
+        port = 0;
+        next = null;
+        back = null;
     }
-    public Node(String name,Node n1, Node n2, Node n3){
-        neighbors = new ArrayList();
-        files = new ArrayList();
-        neighbors.add(n1);
-        neighbors.add(n2);
-        neighbors.add(n3);
-        this.name = name;
+    // Alternate Node constructor
+    public Node(String n, long i, int p, Node next_ptr, Node back_ptr){
+        name = n;
+        next = next_ptr;
+        back = back_ptr;
+        // Check if passed params are valid for IP address
+        if(i >= min_ip && i <= max_ip){
+            ip = i;
+        }
+        else{
+            System.out.println("IP is outside of the available address space. Setting IP to 0.0.0.0 ...");
+            ip = min_ip;
+        }
+        // Check if passed params are valid for port
+        if(p >= min_port && p <= max_port){
+            port = p;
+        }
+        else{
+            System.out.println("Port is outside of the available port range. Defaulting to port 20");
+            port = min_port;
+        }
     }
-    
-    public ArrayList<Node> getNeighbors(){
-        return neighbors;
+    // Return next adjacent node
+    public Node getNext(){
+        return this.next;
     }
-    public ArrayList<String> getFiles(){
-        return files;
+    // Return previous adjacent node
+    public Node getBack(){
+        return this.back;
     }
-    public void addNeighbor(Node n){
-        neighbors.add(n);
+    // Convert numerical value to standard IP address format
+    public String IpLongToString(long i){
+        return ((ip >> 24 ) & 0xFF) + "." +
+
+        ((ip >> 16 ) & 0xFF) + "." +
+
+        ((ip >>  8 ) & 0xFF) + "." +
+
+        ( ip        & 0xFF);
     }
-    public void addFile(String s){
-        files.add(s);
-        //send file to central database;
-    }
-    public void removeNeighbor(Node n){
-        if (neighbors.contains(n)){
-            neighbors.remove(n);
-        } else
-            System.err.println("Error: node is not a neighbor");
+    // Print all info about node
+    public void printNodeInfo(){
+        System.out.print("Node Name: " + name + "\n" + "Inet Address: " + IpLongToString(ip) + "\n" + "Port number: " + port);
     }
 }
