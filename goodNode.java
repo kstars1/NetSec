@@ -13,11 +13,6 @@ public class goodNode implements Runnable {
     String threadName;
     ServerNode server = new ServerNode("indexer");
 
-    public goodNode() {
-        //empty constructor 
-
-    }
-
     public goodNode(String threadName, ServerNode indexer) {
         thread = new Thread(this, threadName); // (1) Create a new thread.
         this.threadName = threadName;
@@ -36,23 +31,5 @@ public class goodNode implements Runnable {
                 Logger.getLogger(goodNode.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public void requestFile(String filename) {
-        //send request to servernode for file
-        //wait for response 
-        //when response is receieved, wake up
-        //if request is approved, ip address is returned
-        //if request is denied, null is returned
-        //if response is null, exit with error code
-        //if response is not null, request file getFile(filename, IP_address)
-        //System.out.println(myName + ": Waiting for the server to find my file...")
-        //System.out.println(myName + ": The server couldn't find my file :(")
-        //System.out.println(myName + ": ")
-        //
-    }
-
-    public void getFile(String filename, String IP_address) {
-        //send request to node aka sleep 
     }
 }

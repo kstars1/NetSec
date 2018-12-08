@@ -13,11 +13,6 @@ public class badNode implements Runnable {
     String threadName;
     ServerNode server;
 
-    public badNode() {
-        //empty constructor 
-
-    }
-
     public badNode(String threadName, ServerNode indexer) {
         thread = new Thread(this, threadName); // (1) Create a new thread.
         this.threadName = threadName;

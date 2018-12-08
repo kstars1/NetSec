@@ -10,6 +10,7 @@ public class Queue<T> implements QueueADT<T> {
     private int queueFront; 
     private int queueRear; 
     private T[] list;  //Array of references to the objects that store queue elements
+    
     //Default constructor 
     public Queue() { 
         maxQueueSize = 100; 
@@ -83,12 +84,11 @@ public class Queue<T> implements QueueADT<T> {
     } 
 
     private static class QueueUnderflowException extends Exception {
-
         public QueueUnderflowException() {
         }
     }
+
     public int size(){
         return count;
     }
-    
 }
