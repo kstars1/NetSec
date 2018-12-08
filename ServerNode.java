@@ -6,7 +6,7 @@
 package p2p;
 
 import java.util.ArrayList;
-public class ServerNode extends Node{
+public class ServerNode extends Node implements Runnable{
     
     //private ArrayList<File> fileIndex;
     private int[] buffer = new int[100];
@@ -26,14 +26,9 @@ public class ServerNode extends Node{
     //}
     public void findFile(String requester) throws InterruptedException {
         //if (fileIndex.contains(filename))
-        buffer[buffdex] = buffdex;
-        buffdex++;
-        lock.lock();
         //sleeping done here
         Thread.sleep(5000);
         System.out.println(requester);
-        buffdex--;
-        lock.lock();
         return;
     }
    
