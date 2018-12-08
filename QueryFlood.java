@@ -7,19 +7,22 @@ package p2p;
 
 
 public class QueryFlood {
+    //public static Queue buffer = new Queue(100);
     /**
      * @param args the command line arguments
      */
     
     public static void main() throws InterruptedException {
-        ServerNode indexer = new ServerNode("indexer");
+        Thread indexer;
+        indexer = new Thread(new ServerNode("indexer"));
         Thread badguy;
-        badguy = new Thread(new badNode("badguy",indexer));
+        badguy = new Thread(new badNode("badguy"));
         Thread goodguy1;
-        goodguy1 = new Thread(new goodNode("goodguy1", indexer));
+        goodguy1 = new Thread(new goodNode("goodguy1"));
         Thread goodguy2;
-        goodguy2 = new Thread(new goodNode("goodguy2", indexer));
-        indexer.findFile();
+        goodguy2 = new Thread(new goodNode("goodguy2"));
+        //indexer.findFile();
+        indexer.start();
         badguy.start();
         goodguy1.start();
         goodguy2.start();

@@ -11,17 +11,10 @@ public class badNode implements Runnable {
 
     Thread thread;
     String threadName;
-    ServerNode server;
 
-    public badNode() {
-        //empty constructor 
-
-    }
-
-    public badNode(String threadName, ServerNode indexer) {
+    public badNode(String threadName) {
         thread = new Thread(this, threadName); // (1) Create a new thread.
         this.threadName = threadName;
-        server = indexer;
         System.out.println(thread.getName());
         thread.start(); // (2) Start the thread.
     }
@@ -30,7 +23,11 @@ public class badNode implements Runnable {
     public void run() {
 
         while (true) {
-            ServerNode.buffer.enqueue(this.threadName);
+            try {
+                ServerNode.addToBuffer(this.threadName);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(badNode.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
                 thread.sleep(100);
             } catch (InterruptedException ex) {
@@ -39,3 +36,4 @@ public class badNode implements Runnable {
         }
     }
 }
+
