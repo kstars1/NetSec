@@ -1,2 +1,0 @@
-# NetSec
-NetSec Simulation stuff
