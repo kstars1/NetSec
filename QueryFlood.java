@@ -11,8 +11,11 @@ public class QueryFlood {
      * @param args the command line arguments
      */
     
-    public static void main() throws InterruptedException {
-        ServerNode indexer = new ServerNode("indexer");
+    public static void main(String arg) throws InterruptedException {
+        if(arg = "attack")
+            ServerNode indexer = new ServerNode("indexer");
+        else if(arg = "defend")
+            ServerNode2 indexer = new ServerNode2("indexer");
         Thread badguy;
         badguy = new Thread(new badNode("badguy",indexer));
         Thread goodguy1;
