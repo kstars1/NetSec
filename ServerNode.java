@@ -16,8 +16,8 @@ public class ServerNode extends Node{
         super(name);
         //fileIndex = new ArrayList<File>();
     }
-    public ServerNode(String name, Node n1, Node n2, Node n3){
-        super(name,n1,n2,n3);
+    public ServerNode(String name, long i, int p, Node n, Node b){
+        super(name, i, p, n, b);
         //fileIndex = new ArrayList<File>();
     }
     //public void addIndex(File newFile){

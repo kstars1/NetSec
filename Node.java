@@ -23,10 +23,8 @@ public class Node {
     private final int max_port = 1023;  // Arbitrary maximum port
     
     // Default Node constructor
-    public Node(){
+    public Node(String name){
         name = "";
-        ip = 0;
-        port = 0;
         next = null;
         back = null;
     }

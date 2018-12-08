@@ -7,7 +7,7 @@ package p2p;
 
 /**
  *
- * @author marks
+ * @author aloud
  */
 public class P2p {
 
@@ -15,8 +15,8 @@ public class P2p {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       QueryFlood run = new QueryFlood();
-       run.main();
+        QueryFlood run = new QueryFlood();
+        run.main();
     }
     
 }
