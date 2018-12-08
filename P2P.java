@@ -9,7 +9,7 @@ package p2p;
  *
  * @author aloud
  */
-public class P2p {
+public class P2P {
 
     /**
      * @param args the command line arguments
