@@ -17,14 +17,9 @@ public class ServerNode extends Node implements Runnable{
     }
     public ServerNode(String name, long i, int p, Node n, Node b){
         super(name, i, p, n, b);
-        //fileIndex = new ArrayList<File>();
     }
-    //public void addIndex(File newFile){
-        //fileIndex.add(newFile);
-    //}
+
     public void findFile() throws InterruptedException {
-        //if (fileIndex.contains(filename))
-        //sleeping done here
         while (true){
         while (QueryFlood.buffer.isEmpty()){}
         String requester = (String) QueryFlood.buffer.dequeue();

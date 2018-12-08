@@ -5,33 +5,20 @@
  */
 package p2p;
 
-import java.util.ArrayList;
-public class ServerNode extends Node{
-    
-    //private ArrayList<File> fileIndex;
-    private Lock lock = new Lock();
+public interface QueueADT<T>
+{
+   //  Adds one element to the rear of the queue
+   public void enqueue (T element);
 
-    public ServerNode(String name) {
-        super(name);
-        //fileIndex = new ArrayList<File>();
-    }
-    public ServerNode(String name, long i, int p, Node n, Node b){
-        super(name, i, p, n, b);
-        //fileIndex = new ArrayList<File>();
-    }
-    //public void addIndex(File newFile){
-        //fileIndex.add(newFile);
-    //}
-    public void findFile() throws InterruptedException {
-        //if (fileIndex.contains(filename))
-        //sleeping done here
-        while (true){
-        while (QueryFlood.buffer.isEmpty()){}
-        String requester = (String) QueryFlood.buffer.dequeue();
-        System.out.println("Serving " + requester + ". buffer size: " + QueryFlood.buffer.size());
-        Thread.sleep(1000);
-        System.out.println("Done serving " + requester + ". buffer size: " + QueryFlood.buffer.size());
-        }
-    }
+   //  Removes and returns the element at the front of the queue
+   public T dequeue();
+
+   //  Returns without removing the element at the front of the queue
+   public T first();
    
+   //  Returns true if the queue contains no elements
+   public boolean isEmpty();
+
+   //  Returns a string representation of the queue
+   public String toString();
 }
