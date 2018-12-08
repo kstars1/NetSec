@@ -11,15 +11,17 @@ public class goodNode implements Runnable {
 
     Thread thread;
     String threadName;
+    int node_id;
 
     public goodNode() {
         //empty constructor 
 
     }
 
-    public goodNode(String threadName) {
+    public goodNode(String threadName, int num) {
         thread = new Thread(this, threadName); // (1) Create a new thread.
         this.threadName = threadName;
+        node_id = num;
         System.out.println(thread.getName());
         thread.start(); // (2) Start the thread.
     }
@@ -28,7 +30,7 @@ public class goodNode implements Runnable {
 
         while (true) {
             try {
-                ServerNode.addToBuffer(this.threadName);
+                ServerNode.addToBuffer(this.threadName, node_id);
             } catch (InterruptedException ex) {
                 Logger.getLogger(goodNode.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -40,3 +42,4 @@ public class goodNode implements Runnable {
         }
     }
 }
+
