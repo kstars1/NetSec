@@ -9,9 +9,7 @@ import java.util.ArrayList;
 public class ServerNode extends Node implements Runnable{
     
     //private ArrayList<File> fileIndex;
-    private int[] buffer = new int[100];
-    private int buffdex;
-    private Lock lock = new Lock();
+    
 
     public ServerNode(String name) {
         super(name);
