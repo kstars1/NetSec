@@ -7,7 +7,6 @@ package p2p;
 
 
 public class QueryFlood {
-    public static Queue buffer = new Queue(100);
     /**
      * @param args the command line arguments
      */

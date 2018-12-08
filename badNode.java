@@ -13,6 +13,11 @@ public class badNode implements Runnable {
     String threadName;
     ServerNode server;
 
+    public badNode() {
+        //empty constructor 
+
+    }
+
     public badNode(String threadName, ServerNode indexer) {
         thread = new Thread(this, threadName); // (1) Create a new thread.
         this.threadName = threadName;
@@ -25,7 +30,7 @@ public class badNode implements Runnable {
     public void run() {
 
         while (true) {
-            QueryFlood.buffer.enqueue(this.threadName);
+            ServerNode.buffer.enqueue(this.threadName);
             try {
                 thread.sleep(100);
             } catch (InterruptedException ex) {
