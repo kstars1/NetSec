@@ -24,7 +24,7 @@ public class goodNode implements Runnable {
     public void run() {
 
         while (true) {
-            QueryFlood.buffer.enqueue(this.threadName);
+            ServerNode.buffer.enqueue(this.threadName);
             try {
                 thread.sleep(10000);
             } catch (InterruptedException ex) {
@@ -33,3 +33,4 @@ public class goodNode implements Runnable {
         }
     }
 }
+
