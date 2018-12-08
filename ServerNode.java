@@ -6,10 +6,10 @@
 package p2p;
 
 import java.util.ArrayList;
-public class ServerNode extends Node{
+public class ServerNode extends Node implements Runnable{
     
     //private ArrayList<File> fileIndex;
-    private Lock lock = new Lock();
+    
 
     public ServerNode(String name) {
         super(name);
