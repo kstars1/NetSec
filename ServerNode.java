@@ -33,7 +33,7 @@ public class ServerNode extends Node{
         Thread.sleep(5000);
         System.out.println(requester);
         buffdex--;
-        lock.lock();
+        lock.unlock();
         return;
     }
    
