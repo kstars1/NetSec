@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p2p;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- *
- * @author marks
- */
 public class Node {
     private String name;    // Node alias
     private long ip;    // Node IPv4
@@ -58,6 +51,10 @@ public class Node {
     public Node getBack(){
         return this.back;
     }
+    // Return IP of node
+    public long getIP(){
+        return ip;
+    }
     // Convert numerical value to standard IP address format
     public String IpLongToString(long i){
         return ((ip >> 24 ) & 0xFF) + "." +
@@ -71,5 +68,13 @@ public class Node {
     // Print all info about node
     public void printNodeInfo(){
         System.out.print("Node Name: " + name + "\n" + "Inet Address: " + IpLongToString(ip) + "\n" + "Port number: " + port);
+    }
+    public void addKey(String key, String value, HashMap<String, String> hmap){
+        if(hmap.containsKey(key)){
+            System.out.println("Unable to add node to the network. A node with this IP address already exists.");
+        }
+        else{
+            hmap.put(key, value);
+        }
     }
 }
