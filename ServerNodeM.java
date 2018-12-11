@@ -3,20 +3,21 @@ package p2p;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class ServerNode extends Node implements Runnable{
+public class ServerNodeM extends Node implements Runnable{
     
-    //private ArrayList<File> fileIndex;
+    private static final int MAX_NUM_CONNECTIONS = 10;
     private static Lock lock = new Lock();
     public static Queue buffer = new Queue(100);
+    private static int[] connections = new int[MAX_NUM_CONNECTIONS];
 
-    public ServerNode(String name) {
+    public ServerNodeM(String name) {
         super(name);
         //fileIndex = new ArrayList<File>();
     }
-    public ServerNode(String name, long i, int p, Node n, Node b){
+    public ServerNodeM(String name, long i, int p, Node n, Node b){
         super(name, i, p, n, b);
     }
-    public static void addToBuffer(String s) throws InterruptedException{
+    public static void addToBuffer(String s, int node_id) throws InterruptedException{
         lock.lock();
         
         /*int count = 0;
@@ -52,8 +53,9 @@ public class ServerNode extends Node implements Runnable{
         try {
             findFile();
         } catch (InterruptedException ex) {
-            Logger.getLogger(ServerNode.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServerNodeAlt.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    
 }
+

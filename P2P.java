@@ -1,22 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package p2p;
 
 /**
  *
  * @author aloud
  */
-import java.util.*;
-
 public class P2P {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
         QueryFlood run = new QueryFlood();
-        System.out.println("Enter attack to run the query flood, enter defend to run the mitigated query flood")
-        Scanner scan = new Scanner(System.in);
-        String input = scan.next();
-        run.main(input);
+        QueryFlood.main("attack");
     }
     
 }
